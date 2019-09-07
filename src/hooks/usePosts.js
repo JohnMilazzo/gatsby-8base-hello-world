@@ -7,6 +7,7 @@ const usePosts = () => {
         postsList {
           items {
             id
+            slug
             title
             published
           }
@@ -17,6 +18,7 @@ const usePosts = () => {
 
   return data.eightbase.postsList.items.map(post => ({
     id: post.id,
+    slug: post.slug,
     title: post.title,
     published: post.published
   }));

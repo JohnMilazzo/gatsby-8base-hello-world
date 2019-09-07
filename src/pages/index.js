@@ -1,5 +1,4 @@
 import React from 'react';
-import { graphql } from 'gatsby';
 
 import PostListItem from '../components/post-list-item';
 import Layout from '../layouts';
@@ -12,10 +11,10 @@ export default () => {
     <Layout>
       <div>
         <h1>Page - Title</h1>
-        <h3>Post List:</h3>
+        <h2>Post List:</h2>
 
         {posts.map(post => (
-          <pre>{JSON.stringify(post, null, 2)}</pre>
+          <PostListItem key={post.slug} post={post} />
         ))}
       </div>
     </Layout>

@@ -6,7 +6,7 @@ class DefaultLayout extends React.Component {
     return (
       <div>
         <Link to="/">
-          <h3>Layout - Home Link</h3>
+          <h3>Home</h3>
         </Link>
 
         {this.props.children}

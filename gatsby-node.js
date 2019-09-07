@@ -1,13 +1,4 @@
-const path = require(`path`);
-
-// Implement the Gatsby API “createPages”. This is
-// called after the Gatsby bootstrap is finished so you have
-// access to any information necessary to programmatically
-// create pages.
-
-exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions;
-
+exports.createPages = async ({ graphql, actions, reporter }) => {
   const { data } = await graphql(`
     query {
       eightbase {
@@ -15,6 +6,7 @@ exports.createPages = async ({ graphql, actions }) => {
           items {
             id
             createdAt
+            slug
             title
             published
           }
@@ -23,23 +15,23 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `);
 
-  // get the template into which we'll put the data
-  const pageTemplate = path.resolve(`./src/templates/post-detail.js`);
+  if (data.errors) {
+    reporter.panic('failed to get posts data', data.errors);
+  }
+
+  // create an "alias" to shorten up the path to data items
+  const posts = data.eightbase.postsList.items;
 
   // create a 'detail' page for each post
-  data.eightbase.postsList.items.forEach(post => {
-    /* replace spaces or special characters with a dash */
-    let urlTitle = post.title;
-    urlTitle = urlTitle.replace(/\W+/g, '-');
-
+  posts.forEach(post => {
     actions.createPage({
       // Each page is required to have a `path` and a template `component`.
       // The `context` is optional but is often necessary so the template
       // can query data specific to each page.
-      path: `/${urlTitle}/k/${post.id}/`,
-      component: pageTemplate,
+      path: post.slug,
+      component: require.resolve(`./src/templates/post-detail.js`),
       context: {
-        id: post.id
+        slug: `/${post.slug}/`
       }
     });
   });

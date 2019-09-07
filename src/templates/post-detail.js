@@ -11,7 +11,7 @@ class Item extends React.Component {
       <Layout>
         <h3>Book Detail</h3>
         <div>
-          <a href={post.title}>{post.title}</a>
+          <a href={post.slug}>{post.title}</a>
           <p>Published: {post.published}</p>
           <p>
             <div>XXXXX</div>
@@ -29,6 +29,7 @@ export const pageQuery = graphql`
     eightbase {
       post(id: "ck05mwfgi004v01jnedgl3zhq") {
         id
+        slug
         title
         published
       }
