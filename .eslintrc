@@ -1,0 +1,16 @@
+{
+  "extends": ["wesbos"],
+  "rules": {
+    "comma-dangle": 0,
+    "prettier/prettier": [
+      "error",
+      {
+        "printWidth": 80,
+        "singleQuote": true,
+        "tabWidth": 2,
+        "trailingComma": "none"
+      }
+    ],
+    "react/display-name": 0
+  }
+}
