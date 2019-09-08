@@ -28,7 +28,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       path: post.slug,
       component: require.resolve(`./src/templates/post-detail.js`),
       context: {
-        id: `/${post.id}/`
+        id: post.id
       }
     });
   });

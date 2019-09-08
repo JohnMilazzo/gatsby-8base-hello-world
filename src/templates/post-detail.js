@@ -1,29 +1,35 @@
 import React from 'react';
-// import { graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 
 import Layout from '../layouts';
 
-const PostDetail = ({ pageContext }) => (
+const PostDetail = ({
+  data: {
+    eightbase: { post }
+  },
+  pageContext
+}) => (
   <Layout>
-    <h1>Post Detail</h1>
+    <h1>{post.title}</h1>
+    <div>Published: {post.published}</div>
     <div>
-      <pre>{JSON.stringify(pageContext, null, 2)}</pre>
+      <p>{post.body}</p>
     </div>
+    <div></div>
   </Layout>
 );
 
 export default PostDetail;
 
-// export const pageQuery = graphql`
-//   query {
-//     eightbase {
-//       post(id: "ck05mwfgi004v01jnedgl3zhq") {
-//         id
-//         slug
-//         title
-//         body
-//         published
-//       }
-//     }
-//   }
-// `;
+export const pageQuery = graphql`
+  query($id: ID!) {
+    eightbase {
+      post(id: $id) {
+        id
+        title
+        body
+        published
+      }
+    }
+  }
+`;
