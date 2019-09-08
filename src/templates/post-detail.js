@@ -1,38 +1,29 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+// import { graphql } from 'gatsby';
 
 import Layout from '../layouts';
 
-class Item extends React.Component {
-  render() {
-    const { post } = this.props.data;
+const PostDetail = ({ pageContext }) => (
+  <Layout>
+    <h1>Post Detail</h1>
+    <div>
+      <pre>{JSON.stringify(pageContext, null, 2)}</pre>
+    </div>
+  </Layout>
+);
 
-    return (
-      <Layout>
-        <h3>Book Detail</h3>
-        <div>
-          <a href={post.slug}>{post.title}</a>
-          <p>Published: {post.published}</p>
-          <p>
-            <div>XXXXX</div>
-          </p>
-        </div>
-      </Layout>
-    );
-  }
-}
+export default PostDetail;
 
-export default Item;
-
-export const pageQuery = graphql`
-  query {
-    eightbase {
-      post(id: "ck05mwfgi004v01jnedgl3zhq") {
-        id
-        slug
-        title
-        published
-      }
-    }
-  }
-`;
+// export const pageQuery = graphql`
+//   query {
+//     eightbase {
+//       post(id: "ck05mwfgi004v01jnedgl3zhq") {
+//         id
+//         slug
+//         title
+//         body
+//         published
+//       }
+//     }
+//   }
+// `;

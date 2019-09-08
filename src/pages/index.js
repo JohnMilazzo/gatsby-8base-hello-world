@@ -10,7 +10,7 @@ export default () => {
   return (
     <Layout>
       <div>
-        <h1>Page - Title</h1>
+        <h1>Page Title</h1>
         <h2>Post List:</h2>
 
         {posts.map(post => (

@@ -25,13 +25,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // create a 'detail' page for each post
   posts.forEach(post => {
     actions.createPage({
-      // Each page is required to have a `path` and a template `component`.
-      // The `context` is optional but is often necessary so the template
-      // can query data specific to each page.
       path: post.slug,
       component: require.resolve(`./src/templates/post-detail.js`),
       context: {
-        slug: `/${post.slug}/`
+        id: `/${post.id}/`
       }
     });
   });
