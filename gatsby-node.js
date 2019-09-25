@@ -5,10 +5,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         postsList {
           items {
             id
-            createdAt
             slug
-            title
-            published
           }
         }
       }

@@ -6,8 +6,7 @@ import Layout from '../layouts';
 const PostDetail = ({
   data: {
     eightbase: { post }
-  },
-  pageContext
+  }
 }) => (
   <Layout>
     <h1>{post.title}</h1>
@@ -15,7 +14,7 @@ const PostDetail = ({
     <div>
       <p>{post.body}</p>
     </div>
-    <div></div>
+    <div />
   </Layout>
 );
 

@@ -12,11 +12,13 @@ module.exports = {
         // NOTE: THIS CANNOT BEGIN WITH A NUMBER!!
         //
         typeName: 'EIGHTBASE',
+
         // This is the field under which it's accessible
+        // in our queries
         fieldName: 'eightbase',
+
         // URL to query from
-        // url: process.env.GQL_8BASE_API_URL
-        url: 'https://api.8base.com/ck05he86w000h01jog3t41414'
+        url: process.env.GQL_8BASE_API_URL
       }
     }
   ]
