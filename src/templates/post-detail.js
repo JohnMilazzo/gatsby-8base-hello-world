@@ -10,11 +10,12 @@ const PostDetail = ({
 }) => (
   <Layout>
     <h1>{post.title}</h1>
+
     <div>Published: {post.published}</div>
+
     <div>
       <p>{post.body}</p>
     </div>
-    <div />
   </Layout>
 );
 

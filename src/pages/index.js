@@ -10,7 +10,8 @@ export default () => {
   return (
     <Layout>
       <div>
-        <h1>Page Title</h1>
+        <h1>My Gatsby / 8base Blog</h1>
+
         <h2>Post List:</h2>
 
         {posts.map(post => (
