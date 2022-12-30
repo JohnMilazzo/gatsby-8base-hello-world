@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "dotenv": "8.1.0",
-    "gatsby": "2.15.25",
+    "gatsby": "2.32.13",
     "gatsby-source-graphql": "2.1.15",
     "react": "16.9.0",
     "react-dom": "16.9.0"
